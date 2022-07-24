@@ -84,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'devsearch',
-        'USER':'vigna',
-        'PASSWORD':'NSVS1509',
-        'HOST':'database-1.cgvmgwp70phn.us-east-1.rds.amazonaws.com',
+        'USER':os.environ.get('DB_USER'),
+        'PASSWORD':os.environ.get('DB_pass'),
+        'HOST':os.environ.get('DB_HOST'),
         'PORT':'5432'
     }
 }
@@ -159,9 +159,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_QUERYSTRING_AUTH=False
 AWS_S3_FILE_OVERWRITE=False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID='AKIAXJTVYZ5MGXMIQEA5'
-AWS_SECRET_ACCESS_KEY='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'
-AWS_STORAGE_BUCKET_NAME='devsearchvignabucket'
+AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME=os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 if os.getcwd() == '/app':
     DEBUG=False
